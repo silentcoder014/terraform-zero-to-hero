@@ -1,0 +1,90 @@
+# ==============================================================================
+# Terraform .gitignore
+# ==============================================================================
+
+# ── Local state files ──────────────────────────────────────────────────────────
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# ── Crash & debug logs ────────────────────────────────────────────────────────
+crash.log
+crash.*.log
+
+# ── Sensitive variable files ──────────────────────────────────────────────────
+# These often contain secrets, API keys, account IDs
+*.tfvars
+*.tfvars.json
+
+# Allow example/template var files to be committed
+!*.tfvars.example
+!*.tfvars.template
+!example.tfvars
+
+# ── Override files ────────────────────────────────────────────────────────────
+# Used for local developer overrides — not for team sharing
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# ── CLI config & credentials ──────────────────────────────────────────────────
+.terraformrc
+terraform.rc
+
+# ── Terraform working directory ───────────────────────────────────────────────
+# Contains providers, modules cache, backend config with potential secrets
+.terraform/
+.terraform.lock.hcl.bak
+
+# Keep the dependency lock file — should be committed
+# (remove the line below if your team prefers not to commit it)
+!.terraform.lock.hcl
+
+# ── Plan output files ─────────────────────────────────────────────────────────
+# Binary plan files can contain sensitive values in plaintext
+*.tfplan
+*.plan
+planfile
+
+# ── Backend config files ──────────────────────────────────────────────────────
+# Partial backend configs passed via -backend-config often contain secrets
+backend.hcl
+backend.config
+*backend*.hcl
+*backend*.config
+
+# Allow example backend configs
+!backend.hcl.example
+!backend.config.example
+
+# ── SSH keys & PEM files ──────────────────────────────────────────────────────
+*.pem
+*.key
+*.pub
+id_rsa
+id_ed25519
+
+# ── Environment / secret files ────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+secrets.auto.tfvars
+secrets.tfvars
+
+# ── macOS & editor noise ──────────────────────────────────────────────────────
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ── Test output (Terratest / kitchen-terraform) ───────────────────────────────
+test/reports/
+*.test
+vendor/
+
+# ── Terragrunt ────────────────────────────────────────────────────────────────
+.terragrunt-cache/
+terragrunt.hcl.bak
