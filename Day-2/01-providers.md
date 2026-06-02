@@ -38,7 +38,9 @@ Providers are an essential part of Terraform. They allow Terraform to interact w
 ## Different ways to configure providers in terraform
 
 There are three main ways to configure providers in Terraform:
-
+variable "cidr" {
+  default = "10.0.0.0/16"
+}
 ### In the root module 
 
 This is the most common way to configure providers. The provider configuration block is placed in the root module of the Terraform configuration. This makes the provider configuration available to all the resources in the configuration.
